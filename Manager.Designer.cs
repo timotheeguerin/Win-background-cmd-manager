@@ -30,6 +30,9 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.script_list = new System.Windows.Forms.ListView();
+            this.script_list_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.script_list_command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.script_list_running = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,11 +51,35 @@
             // 
             // script_list
             // 
+            this.script_list.AllowColumnReorder = true;
+            this.script_list.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.script_list_name,
+            this.script_list_command,
+            this.script_list_running});
+            this.script_list.FullRowSelect = true;
+            this.script_list.HideSelection = false;
             this.script_list.Location = new System.Drawing.Point(3, 3);
             this.script_list.Name = "script_list";
             this.script_list.Size = new System.Drawing.Size(472, 302);
             this.script_list.TabIndex = 0;
             this.script_list.UseCompatibleStateImageBehavior = false;
+            this.script_list.View = System.Windows.Forms.View.Details;
+            // 
+            // script_list_name
+            // 
+            this.script_list_name.Tag = "";
+            this.script_list_name.Text = "Name";
+            this.script_list_name.Width = 112;
+            // 
+            // script_list_command
+            // 
+            this.script_list_command.Text = "Command";
+            this.script_list_command.Width = 282;
+            // 
+            // script_list_running
+            // 
+            this.script_list_running.Text = "Running";
+            this.script_list_running.Width = 348;
             // 
             // Manager
             // 
@@ -71,5 +98,8 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListView script_list;
+        private System.Windows.Forms.ColumnHeader script_list_name;
+        private System.Windows.Forms.ColumnHeader script_list_command;
+        private System.Windows.Forms.ColumnHeader script_list_running;
     }
 }
