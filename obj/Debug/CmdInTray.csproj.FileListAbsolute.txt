@@ -1,0 +1,9 @@
+C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\CmdInTray.exe.config
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.csprojResolveAssemblyReference.cache
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.AboutBox.resources
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.csproj.GenerateResource.Cache
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.Properties.Resources.resources
+C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\CmdInTray.exe
+C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\CmdInTray.pdb
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.exe
+C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.pdb
