@@ -29,19 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.script_name_input = new System.Windows.Forms.TextBox();
-            this.script_command_input = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.script_status_label = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.restart_button = new System.Windows.Forms.Button();
-            this.start_button = new System.Windows.Forms.Button();
-            this.stop_button = new System.Windows.Forms.Button();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.save_input_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.remove_script_button = new System.Windows.Forms.Button();
@@ -51,12 +38,29 @@
             this.script_list_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_running = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.script_status_label = new System.Windows.Forms.Label();
+            this.restart_button = new System.Windows.Forms.Button();
+            this.start_button = new System.Windows.Forms.Button();
+            this.stop_button = new System.Windows.Forms.Button();
+            this.script_name_input = new System.Windows.Forms.TextBox();
+            this.script_command_input = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.save_input_button = new System.Windows.Forms.Button();
+            this.console_richtext_box = new System.Windows.Forms.RichTextBox();
+            this.open_log_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -64,164 +68,14 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.79533F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.20467F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(943, 389);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(943, 400);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 119F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
-            this.tableLayoutPanel2.Controls.Add(this.script_name_input, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.script_command_input, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.script_status_label, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(481, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 7;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 167F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 383);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // script_name_input
-            // 
-            this.script_name_input.Location = new System.Drawing.Point(122, 98);
-            this.script_name_input.Name = "script_name_input";
-            this.script_name_input.ReadOnly = true;
-            this.script_name_input.Size = new System.Drawing.Size(334, 20);
-            this.script_name_input.TabIndex = 0;
-            // 
-            // script_command_input
-            // 
-            this.script_command_input.Location = new System.Drawing.Point(122, 127);
-            this.script_command_input.Name = "script_command_input";
-            this.script_command_input.ReadOnly = true;
-            this.script_command_input.Size = new System.Drawing.Size(334, 20);
-            this.script_command_input.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 95);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Name";
-            // 
-            // script_status_label
-            // 
-            this.script_status_label.AutoSize = true;
-            this.script_status_label.Location = new System.Drawing.Point(122, 0);
-            this.script_status_label.Name = "script_status_label";
-            this.script_status_label.Size = new System.Drawing.Size(47, 13);
-            this.script_status_label.TabIndex = 8;
-            this.script_status_label.Text = "Running";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Status";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 124);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Command";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
-            this.tableLayoutPanel3.Controls.Add(this.restart_button, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.start_button, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.stop_button, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(122, 351);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.57724F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(334, 29);
-            this.tableLayoutPanel3.TabIndex = 5;
-            // 
-            // restart_button
-            // 
-            this.restart_button.Enabled = false;
-            this.restart_button.Location = new System.Drawing.Point(250, 3);
-            this.restart_button.Name = "restart_button";
-            this.restart_button.Size = new System.Drawing.Size(75, 23);
-            this.restart_button.TabIndex = 6;
-            this.restart_button.Text = "Restart";
-            this.restart_button.UseVisualStyleBackColor = true;
-            // 
-            // start_button
-            // 
-            this.start_button.Enabled = false;
-            this.start_button.Location = new System.Drawing.Point(170, 3);
-            this.start_button.Name = "start_button";
-            this.start_button.Size = new System.Drawing.Size(74, 23);
-            this.start_button.TabIndex = 5;
-            this.start_button.Text = "Start";
-            this.start_button.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.start_button.UseVisualStyleBackColor = true;
-            // 
-            // stop_button
-            // 
-            this.stop_button.Enabled = false;
-            this.stop_button.Location = new System.Drawing.Point(90, 3);
-            this.stop_button.Name = "stop_button";
-            this.stop_button.Size = new System.Drawing.Size(73, 23);
-            this.stop_button.TabIndex = 4;
-            this.stop_button.Text = "Stop";
-            this.stop_button.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
-            this.tableLayoutPanel6.Controls.Add(this.save_input_button, 1, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(122, 153);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(334, 25);
-            this.tableLayoutPanel6.TabIndex = 9;
-            // 
-            // save_input_button
-            // 
-            this.save_input_button.Enabled = false;
-            this.save_input_button.Location = new System.Drawing.Point(253, 3);
-            this.save_input_button.Name = "save_input_button";
-            this.save_input_button.Size = new System.Drawing.Size(75, 19);
-            this.save_input_button.TabIndex = 0;
-            this.save_input_button.Text = "Save";
-            this.save_input_button.UseVisualStyleBackColor = true;
-            this.save_input_button.Click += new System.EventHandler(this.save_input_button_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -311,6 +165,189 @@
             this.script_list_running.Text = "Running";
             this.script_list_running.Width = 72;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.console_richtext_box, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.open_log_button, 0, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(481, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 222F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 394);
+            this.tableLayoutPanel2.TabIndex = 7;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 385F));
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.script_name_input, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.script_command_input, 1, 3);
+            this.tableLayoutPanel6.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 4);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 5;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(453, 139);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel3.Controls.Add(this.script_status_label, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.restart_button, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.start_button, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.stop_button, 2, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(77, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.57724F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(354, 29);
+            this.tableLayoutPanel3.TabIndex = 7;
+            // 
+            // script_status_label
+            // 
+            this.script_status_label.AutoSize = true;
+            this.script_status_label.Location = new System.Drawing.Point(3, 0);
+            this.script_status_label.Name = "script_status_label";
+            this.script_status_label.Size = new System.Drawing.Size(0, 13);
+            this.script_status_label.TabIndex = 9;
+            // 
+            // restart_button
+            // 
+            this.restart_button.Enabled = false;
+            this.restart_button.Location = new System.Drawing.Point(273, 3);
+            this.restart_button.Name = "restart_button";
+            this.restart_button.Size = new System.Drawing.Size(75, 23);
+            this.restart_button.TabIndex = 6;
+            this.restart_button.Text = "Restart";
+            this.restart_button.UseVisualStyleBackColor = true;
+            this.restart_button.Click += new System.EventHandler(this.restart_button_Click);
+            // 
+            // start_button
+            // 
+            this.start_button.Enabled = false;
+            this.start_button.Location = new System.Drawing.Point(120, 3);
+            this.start_button.Name = "start_button";
+            this.start_button.Size = new System.Drawing.Size(72, 23);
+            this.start_button.TabIndex = 5;
+            this.start_button.Text = "Start";
+            this.start_button.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.start_button.UseVisualStyleBackColor = true;
+            this.start_button.Click += new System.EventHandler(this.start_button_Click);
+            // 
+            // stop_button
+            // 
+            this.stop_button.Enabled = false;
+            this.stop_button.Location = new System.Drawing.Point(198, 3);
+            this.stop_button.Name = "stop_button";
+            this.stop_button.Size = new System.Drawing.Size(69, 23);
+            this.stop_button.TabIndex = 4;
+            this.stop_button.Text = "Stop";
+            this.stop_button.UseVisualStyleBackColor = true;
+            this.stop_button.Click += new System.EventHandler(this.stop_button_Click);
+            // 
+            // script_name_input
+            // 
+            this.script_name_input.Location = new System.Drawing.Point(77, 58);
+            this.script_name_input.Name = "script_name_input";
+            this.script_name_input.ReadOnly = true;
+            this.script_name_input.Size = new System.Drawing.Size(359, 20);
+            this.script_name_input.TabIndex = 0;
+            // 
+            // script_command_input
+            // 
+            this.script_command_input.Location = new System.Drawing.Point(77, 83);
+            this.script_command_input.Name = "script_command_input";
+            this.script_command_input.ReadOnly = true;
+            this.script_command_input.Size = new System.Drawing.Size(359, 20);
+            this.script_command_input.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Status";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 80);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Command";
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
+            this.tableLayoutPanel7.Controls.Add(this.save_input_button, 1, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(77, 109);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(359, 26);
+            this.tableLayoutPanel7.TabIndex = 9;
+            // 
+            // save_input_button
+            // 
+            this.save_input_button.Enabled = false;
+            this.save_input_button.Location = new System.Drawing.Point(271, 3);
+            this.save_input_button.Name = "save_input_button";
+            this.save_input_button.Size = new System.Drawing.Size(75, 20);
+            this.save_input_button.TabIndex = 0;
+            this.save_input_button.Text = "Save";
+            this.save_input_button.UseVisualStyleBackColor = true;
+            this.save_input_button.Click += new System.EventHandler(this.save_input_button_Click);
+            // 
+            // console_richtext_box
+            // 
+            this.console_richtext_box.Location = new System.Drawing.Point(3, 148);
+            this.console_richtext_box.Name = "console_richtext_box";
+            this.console_richtext_box.Size = new System.Drawing.Size(453, 199);
+            this.console_richtext_box.TabIndex = 3;
+            this.console_richtext_box.Text = "";
+            // 
+            // open_log_button
+            // 
+            this.open_log_button.Location = new System.Drawing.Point(3, 370);
+            this.open_log_button.Name = "open_log_button";
+            this.open_log_button.Size = new System.Drawing.Size(75, 21);
+            this.open_log_button.TabIndex = 4;
+            this.open_log_button.Text = "Open log file";
+            this.open_log_button.UseVisualStyleBackColor = true;
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,12 +357,14 @@
             this.Name = "Manager";
             this.Text = "Manager";
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -333,16 +372,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox script_name_input;
-        private System.Windows.Forms.TextBox script_command_input;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button stop_button;
-        private System.Windows.Forms.Button start_button;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label script_status_label;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.ListView script_list;
         private System.Windows.Forms.ColumnHeader script_list_name;
@@ -351,9 +380,22 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Button remove_script_button;
         private System.Windows.Forms.Button new_script_button;
-        private System.Windows.Forms.Button restart_button;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Button save_input_button;
         private System.Windows.Forms.ColumnHeader script_list_id;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button restart_button;
+        private System.Windows.Forms.Button start_button;
+        private System.Windows.Forms.Button stop_button;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TextBox script_name_input;
+        private System.Windows.Forms.TextBox script_command_input;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button save_input_button;
+        private System.Windows.Forms.Label script_status_label;
+        private System.Windows.Forms.RichTextBox console_richtext_box;
+        private System.Windows.Forms.Button open_log_button;
     }
 }

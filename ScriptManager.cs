@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ namespace CmdInTray
 {
     class ScriptManager
     {
+        public event EventHandler scriptOutputReceived;
+        public delegate void EventHandler(Script script, String e);
+
+
         private static ScriptManager manager;
         private String saveFileName = "save.json";
         public List<Script> scripts = new List<Script>();
@@ -28,6 +33,10 @@ namespace CmdInTray
 
         public void init()
         {
+            if (!System.IO.Directory.Exists(Script.log_dir))
+            {
+                System.IO.Directory.CreateDirectory(Script.log_dir);
+            }
             load();
         }
 
@@ -48,5 +57,11 @@ namespace CmdInTray
             Save save = new Save(scripts);
             save.save(saveFileName);
         }
+
+        public void handleScriptOutput(Script script, String text)
+        {
+            scriptOutputReceived(script, text);
+        }
+
     }
 }
