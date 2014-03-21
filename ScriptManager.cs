@@ -60,7 +60,10 @@ namespace CmdInTray
 
         public void handleScriptOutput(Script script, String text)
         {
-            scriptOutputReceived(script, text);
+            if (scriptOutputReceived != null)
+            {
+                scriptOutputReceived(script, text);
+            }
         }
 
     }

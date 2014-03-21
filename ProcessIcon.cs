@@ -59,7 +59,6 @@ namespace CmdInTray
             // Handle mouse button clicks.
             if (e.Button == MouseButtons.Left)
             {
-                // Start Windows Explorer.
                 new Manager().ShowDialog();
             }
         }

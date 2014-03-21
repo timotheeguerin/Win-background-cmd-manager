@@ -23,9 +23,11 @@ namespace CmdInTray
                 pi.Display();
 
                 ScriptManager.instance().init();
-                // Make sure the application runs!
+                
                 Application.Run();
             }
         }
+
+     
     }
 }

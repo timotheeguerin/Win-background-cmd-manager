@@ -335,6 +335,7 @@
             // 
             this.console_richtext_box.Location = new System.Drawing.Point(3, 148);
             this.console_richtext_box.Name = "console_richtext_box";
+            this.console_richtext_box.ReadOnly = true;
             this.console_richtext_box.Size = new System.Drawing.Size(453, 199);
             this.console_richtext_box.TabIndex = 3;
             this.console_richtext_box.Text = "";

@@ -45,6 +45,7 @@ namespace CmdInTray
         public void start()
         {
             running = true;
+
             process = new Process();
 
             // Redirect the output stream of the child process.
@@ -53,7 +54,6 @@ namespace CmdInTray
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.FileName = "C:/dev/test.bat";
-
             process.OutputDataReceived += new DataReceivedEventHandler(handleOutput);
             process.Start();
             process.BeginOutputReadLine();
@@ -65,6 +65,7 @@ namespace CmdInTray
             System.IO.StreamWriter file = System.IO.File.AppendText(getLogFileName());
             file.WriteLine(e.Data);
             file.Close();
+            
             ScriptManager.instance().handleScriptOutput(this, e.Data);
         }
 

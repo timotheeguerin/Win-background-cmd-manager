@@ -20,7 +20,14 @@ namespace CmdInTray
         {
             InitializeComponent();
             ScriptManager.instance().scriptOutputReceived += new ScriptManager.EventHandler(handleScriptOutput);
+            this.FormClosing += Manager_Closing;
             updateDisplay();
+        }
+
+        private void Manager_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+            ScriptManager.instance().scriptOutputReceived -= handleScriptOutput;
         }
 
         public void updateDisplay()
@@ -151,16 +158,13 @@ namespace CmdInTray
         }
         private void handleScriptOutput(Script s, String e)
         {
-            if (s == selected_script)
+            if (selected_script != null && s == selected_script)
             {
-
-
                 Action action = () =>
                 {
                     console_richtext_box.AppendText(e + Environment.NewLine);
                 };
-                console_richtext_box.Invoke(action, null);
-
+                console_richtext_box.BeginInvoke(action);
             }
         }
     }
