@@ -53,10 +53,21 @@ namespace CmdInTray
 
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.FileName = "C:/dev/test.bat";
+            process.StartInfo.FileName = command;
             process.OutputDataReceived += new DataReceivedEventHandler(handleOutput);
-            process.Start();
-            process.BeginOutputReadLine();
+            try
+            {
+                process.Start();
+                process.BeginOutputReadLine();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
+                running = false;
+            }
+
 
         }
 
@@ -65,7 +76,7 @@ namespace CmdInTray
             System.IO.StreamWriter file = System.IO.File.AppendText(getLogFileName());
             file.WriteLine(e.Data);
             file.Close();
-            
+
             ScriptManager.instance().handleScriptOutput(this, e.Data);
         }
 
@@ -73,7 +84,11 @@ namespace CmdInTray
         public void stop()
         {
             running = false;
-            process.Kill();
+            if (process != null && !process.HasExited)
+            {
+                ScriptManager.KillAllProcessesSpawnedBy(Convert.ToUInt32(process.Id));
+                process.Kill();
+            }
         }
 
         public void restart()
@@ -92,5 +107,7 @@ namespace CmdInTray
             return "logs/scripts/" + name + ".log";
 
         }
+
+
     }
 }

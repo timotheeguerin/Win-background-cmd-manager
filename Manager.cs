@@ -58,7 +58,7 @@ namespace CmdInTray
         private void script_list_ItemSelectionChanged(Object sender, ListViewItemSelectionChangedEventArgs e)
         {
             selected_script = find_script_by_id(int.Parse(e.Item.Text));
-
+            console_richtext_box.Text = "";
             updateButtonStatus();
         }
 

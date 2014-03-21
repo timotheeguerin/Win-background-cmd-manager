@@ -16,6 +16,7 @@ namespace CmdInTray
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            AppDomain.CurrentDomain.ProcessExit += new EventHandler(OnProcessExit);
 
             // Show the system tray icon.          
             using (ProcessIcon pi = new ProcessIcon())
@@ -23,11 +24,18 @@ namespace CmdInTray
                 pi.Display();
 
                 ScriptManager.instance().init();
-                
+
                 Application.Run();
+                
             }
         }
 
-     
+        static void OnProcessExit(object sender, EventArgs e)
+        {
+            Console.WriteLine("I'm out of here");
+            ScriptManager.instance().clean();
+        }
+
+
     }
 }

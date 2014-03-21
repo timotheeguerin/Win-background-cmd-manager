@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Management;
 
 namespace CmdInTray
 {
@@ -40,6 +41,15 @@ namespace CmdInTray
             load();
         }
 
+        //Stop all running scripts
+        public void clean()
+        {
+            foreach (Script script in scripts)
+            {
+                script.stop();
+            }
+        }
+
         private void load()
         {
             Save save = Save.load(saveFileName);
@@ -63,6 +73,34 @@ namespace CmdInTray
             if (scriptOutputReceived != null)
             {
                 scriptOutputReceived(script, text);
+            }
+        }
+
+        public static void KillAllProcessesSpawnedBy(UInt32 parentProcessId)
+        {
+            Console.WriteLine("Finding processes spawned by process with Id [" + parentProcessId + "]");
+
+            // NOTE: Process Ids are reused!
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(
+                "SELECT * " +
+                "FROM Win32_Process " +
+                "WHERE ParentProcessId=" + parentProcessId);
+            ManagementObjectCollection collection = searcher.Get();
+            if (collection.Count > 0)
+            {
+                Console.WriteLine("Killing [" + collection.Count + "] processes spawned by process with Id [" + parentProcessId + "]");
+                foreach (var item in collection)
+                {
+                    UInt32 childProcessId = (UInt32)item["ProcessId"];
+                    if ((int)childProcessId != Process.GetCurrentProcess().Id)
+                    {
+                        KillAllProcessesSpawnedBy(childProcessId);
+
+                        Process childProcess = Process.GetProcessById((int)childProcessId);
+                        Console.WriteLine("Killing child process [" + childProcess.ProcessName + "] with Id [" + childProcessId + "]");
+                        childProcess.Kill();
+                    }
+                }
             }
         }
 
