@@ -43,14 +43,14 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.save_input_button = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.remove_script_button = new System.Windows.Forms.Button();
+            this.new_script_button = new System.Windows.Forms.Button();
             this.script_list = new System.Windows.Forms.ListView();
+            this.script_list_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_running = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.script_list_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -103,17 +103,17 @@
             // 
             this.script_name_input.Location = new System.Drawing.Point(122, 98);
             this.script_name_input.Name = "script_name_input";
+            this.script_name_input.ReadOnly = true;
             this.script_name_input.Size = new System.Drawing.Size(334, 20);
             this.script_name_input.TabIndex = 0;
-            this.script_command_input.ReadOnly = true;
             // 
             // script_command_input
             // 
             this.script_command_input.Location = new System.Drawing.Point(122, 127);
             this.script_command_input.Name = "script_command_input";
+            this.script_command_input.ReadOnly = true;
             this.script_command_input.Size = new System.Drawing.Size(334, 20);
             this.script_command_input.TabIndex = 1;
-            this.script_command_input.ReadOnly = true;
             // 
             // label1
             // 
@@ -170,16 +170,17 @@
             // 
             // restart_button
             // 
+            this.restart_button.Enabled = false;
             this.restart_button.Location = new System.Drawing.Point(250, 3);
             this.restart_button.Name = "restart_button";
             this.restart_button.Size = new System.Drawing.Size(75, 23);
             this.restart_button.TabIndex = 6;
             this.restart_button.Text = "Restart";
             this.restart_button.UseVisualStyleBackColor = true;
-            this.start_button.Enabled = false;
             // 
             // start_button
             // 
+            this.start_button.Enabled = false;
             this.start_button.Location = new System.Drawing.Point(170, 3);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(74, 23);
@@ -187,17 +188,16 @@
             this.start_button.Text = "Start";
             this.start_button.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.start_button.UseVisualStyleBackColor = true;
-            this.restart_button.Enabled = false;
             // 
             // stop_button
             // 
+            this.stop_button.Enabled = false;
             this.stop_button.Location = new System.Drawing.Point(90, 3);
             this.stop_button.Name = "stop_button";
             this.stop_button.Size = new System.Drawing.Size(73, 23);
             this.stop_button.TabIndex = 4;
             this.stop_button.Text = "Stop";
             this.stop_button.UseVisualStyleBackColor = true;
-            this.stop_button.Enabled = false;
             // 
             // tableLayoutPanel6
             // 
@@ -214,6 +214,7 @@
             // 
             // save_input_button
             // 
+            this.save_input_button.Enabled = false;
             this.save_input_button.Location = new System.Drawing.Point(253, 3);
             this.save_input_button.Name = "save_input_button";
             this.save_input_button.Size = new System.Drawing.Size(75, 19);
@@ -221,7 +222,6 @@
             this.save_input_button.Text = "Save";
             this.save_input_button.UseVisualStyleBackColor = true;
             this.save_input_button.Click += new System.EventHandler(this.save_input_button_Click);
-            this.save_input_button.Enabled = false;
             // 
             // tableLayoutPanel4
             // 
@@ -236,6 +236,41 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.10526F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(472, 380);
             this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.remove_script_button, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.new_script_button, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 337);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(466, 40);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // remove_script_button
+            // 
+            this.remove_script_button.Enabled = false;
+            this.remove_script_button.Location = new System.Drawing.Point(3, 3);
+            this.remove_script_button.Name = "remove_script_button";
+            this.remove_script_button.Size = new System.Drawing.Size(227, 34);
+            this.remove_script_button.TabIndex = 0;
+            this.remove_script_button.Text = "Remove";
+            this.remove_script_button.UseVisualStyleBackColor = true;
+            this.remove_script_button.Click += new System.EventHandler(this.remove_script_button_Click);
+            // 
+            // new_script_button
+            // 
+            this.new_script_button.Location = new System.Drawing.Point(236, 3);
+            this.new_script_button.Name = "new_script_button";
+            this.new_script_button.Size = new System.Drawing.Size(227, 34);
+            this.new_script_button.TabIndex = 1;
+            this.new_script_button.Text = "New";
+            this.new_script_button.UseVisualStyleBackColor = true;
+            this.new_script_button.Click += new System.EventHandler(this.new_script_button_Click);
             // 
             // script_list
             // 
@@ -255,6 +290,11 @@
             this.script_list.View = System.Windows.Forms.View.Details;
             this.script_list.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.script_list_ItemSelectionChanged);
             // 
+            // script_list_id
+            // 
+            this.script_list_id.Text = "id";
+            this.script_list_id.Width = 0;
+            // 
             // script_list_name
             // 
             this.script_list_name.Tag = "";
@@ -270,43 +310,6 @@
             // 
             this.script_list_running.Text = "Running";
             this.script_list_running.Width = 72;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 337);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(466, 40);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 34);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(236, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(227, 34);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "New";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // script_list_id
-            // 
-            this.script_list_id.Text = "id";
-            this.script_list_id.Width = 0;
             // 
             // Manager
             // 
@@ -346,8 +349,8 @@
         private System.Windows.Forms.ColumnHeader script_list_command;
         private System.Windows.Forms.ColumnHeader script_list_running;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button remove_script_button;
+        private System.Windows.Forms.Button new_script_button;
         private System.Windows.Forms.Button restart_button;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Button save_input_button;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,33 +13,19 @@ namespace CmdInTray
 {
     public partial class Manager : Form
     {
-
-        private List<Script> scripts = new List<Script>();
-
         private Script selected_script;
 
         public Manager()
         {
             InitializeComponent();
-
-            Script script1 = new Script();
-            script1.name = "Server";
-            script1.command = "rails s";
-            scripts.Add(script1);
-
-            Script script2 = new Script();
-            script2.name = "Solr";
-            script2.command = "rake sunspot:start";
-            scripts.Add(script2);
             updateDisplay();
-            updateButtonStatus();
-
         }
-
+    
         public void updateDisplay()
         {
+            ScriptManager.instance().save();
             script_list.Items.Clear();
-            foreach (Script script in scripts)
+            foreach (Script script in ScriptManager.instance().scripts)
             {
                 ListViewItem item = new ListViewItem(script.id.ToString());
                 item.SubItems.Add(script.name);
@@ -46,6 +33,7 @@ namespace CmdInTray
                 item.SubItems.Add(script.isRunning().ToString());
                 script_list.Items.AddRange(new ListViewItem[] { item });
             }
+            updateButtonStatus();
         }
 
 
@@ -76,6 +64,7 @@ namespace CmdInTray
                 script_command_input.Text = "";
                 script_name_input.ReadOnly = true;
                 script_command_input.ReadOnly = true;
+                remove_script_button.Enabled = false;
             }
             else
             {
@@ -87,11 +76,12 @@ namespace CmdInTray
                 script_command_input.Text = selected_script.command;
                 script_name_input.ReadOnly = false;
                 script_command_input.ReadOnly = false;
+                remove_script_button.Enabled = true;
             }
         }
         private Script find_script_by_id(int id)
         {
-            foreach (Script script in scripts)
+            foreach (Script script in ScriptManager.instance().scripts)
             {
                 if (script.id == id)
                 {
@@ -100,6 +90,27 @@ namespace CmdInTray
             }
             return null;
         }
+
+        private void remove_script_button_Click(object sender, EventArgs e)
+        {
+            if (selected_script != null)
+            {
+                ScriptManager.instance().scripts.Remove(selected_script);
+            }
+            selected_script = null;
+            updateDisplay();
+        }
+
+        private void new_script_button_Click(object sender, EventArgs e)
+        {
+            Script script = new Script();
+            script.name = "Unnamed script";
+            script.command = "";
+            ScriptManager.instance().scripts.Add(script);
+            selected_script = script;
+            updateDisplay();
+        }
+
 
     }
 }

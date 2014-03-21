@@ -7,3 +7,5 @@ C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\CmdInTray.pdb
 C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.exe
 C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.pdb
 C:\dev\ws\csharp\CmdInTray\CmdInTray\obj\Debug\CmdInTray.Manager.resources
+C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\Newtonsoft.Json.dll
+C:\dev\ws\csharp\CmdInTray\CmdInTray\bin\Debug\Newtonsoft.Json.xml
