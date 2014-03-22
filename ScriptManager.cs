@@ -56,13 +56,25 @@ namespace CmdInTray
             Save save = Save.load(saveFileName);
             this.scripts = save.scripts;
             Script.next_id = save.next_id;
+            start();
         }
+
 
         public void reload()
         {
             load();
         }
-
+        //Start all the process with auto start
+        private void start()
+        {
+            foreach (Script script in scripts)
+            {
+                if (script.isAutoStart())
+                {
+                    script.start();
+                }
+            }
+        }
         public void save()
         {
             Save save = new Save(scripts);

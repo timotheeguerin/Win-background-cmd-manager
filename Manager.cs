@@ -44,6 +44,7 @@ namespace CmdInTray
                 item.SubItems.Add(script.name);
                 item.SubItems.Add(script.command);
                 item.SubItems.Add(script.isRunning().ToString());
+                item.SubItems.Add(script.isAutoStart().ToString());
                 script_list.Items.AddRange(new ListViewItem[] { item });
             }
             updateButtonStatus();
@@ -82,6 +83,7 @@ namespace CmdInTray
                 script_name_input.ReadOnly = true;
                 script_command_input.ReadOnly = true;
                 script_working_dir_input.ReadOnly = true;
+                script_auto_start_checkbox.Enabled = false;
 
                 remove_script_button.Enabled = false;
                 script_status_label.Text = "";
@@ -99,6 +101,8 @@ namespace CmdInTray
                 script_name_input.ReadOnly = false;
                 script_command_input.ReadOnly = false;
                 script_working_dir_input.ReadOnly = false;
+                script_auto_start_checkbox.Enabled = true;
+                script_auto_start_checkbox.Checked = selected_script.auto_start;
 
                 remove_script_button.Enabled = true;
                 if (selected_script.isRunning())
@@ -179,6 +183,15 @@ namespace CmdInTray
                     console_richtext_box.ScrollToCaret();
                 };
                 console_richtext_box.BeginInvoke(action);
+            }
+        }
+
+        private void script_auto_start_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selected_script != null)
+            {
+                selected_script.auto_start = script_auto_start_checkbox.Checked;
+                updateDisplay();
             }
         }
     }

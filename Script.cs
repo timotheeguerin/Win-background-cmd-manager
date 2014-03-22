@@ -27,6 +27,7 @@ namespace CmdInTray
         public String name;
         public String command;
         public String working_directory;
+        public Boolean auto_start;
 
         private Boolean running;
 
@@ -43,6 +44,7 @@ namespace CmdInTray
             name = "";
             command = "";
             working_directory = "";
+            auto_start = false;
         }
 
         public void start()
@@ -80,9 +82,18 @@ namespace CmdInTray
 
         private void handleOutput(object sender, DataReceivedEventArgs e)
         {
-            System.IO.StreamWriter file = System.IO.File.AppendText(getLogFileName());
-            file.WriteLine(e.Data);
-            file.Close();
+            try
+            {
+                System.IO.StreamWriter file = System.IO.File.AppendText(getLogFileName());
+                file.WriteLine(e.Data);
+                file.Close();
+            }
+            catch (System.IO.IOException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            
 
             ScriptManager.instance().handleScriptOutput(this, e.Data);
         }
@@ -129,36 +140,45 @@ namespace CmdInTray
                 return "";
             }
             int lineCount = 20;
-            List<string> buffer = new List<string>(lineCount);
-            TextReader reader = File.OpenText(getLogFileName());
-            string line;
-            for (int i = 0; i < lineCount; i++)
+            Encoding encoding = Encoding.Default;
+            string tokenSeparator = "\n";
+            int sizeOfChar = encoding.GetByteCount("\n");
+            byte[] buffer = encoding.GetBytes(tokenSeparator);
+
+
+            using (FileStream fs = new FileStream(getLogFileName(), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
-                line = reader.ReadLine();
-                if (line == null)
+                Int64 tokenCount = 0;
+                Int64 endPosition = fs.Length / sizeOfChar;
+
+                for (Int64 position = sizeOfChar; position < endPosition; position += sizeOfChar)
                 {
-                    return string.Join("\n", buffer);
+                    fs.Seek(-position, SeekOrigin.End);
+                    fs.Read(buffer, 0, buffer.Length);
+
+                    if (encoding.GetString(buffer) == tokenSeparator)
+                    {
+                        tokenCount++;
+                        if (tokenCount == lineCount)
+                        {
+                            byte[] returnBuffer = new byte[fs.Length - fs.Position];
+                            fs.Read(returnBuffer, 0, returnBuffer.Length);
+                            return encoding.GetString(returnBuffer);
+                        }
+                    }
                 }
-                buffer.Add(line);
-            }
 
-            int lastLine = lineCount - 1;           //The index of the last line read from the buffer.  Everything > this index was read earlier than everything <= this indes
-
-            while (null != (line = reader.ReadLine()))
-            {
-                lastLine++;
-                if (lastLine == lineCount) lastLine = 0;
-                buffer[lastLine] = line;
+                // handle case where number of tokens in file is less than numberOfTokens
+                fs.Seek(0, SeekOrigin.Begin);
+                buffer = new byte[fs.Length];
+                fs.Read(buffer, 0, buffer.Length);
+                return encoding.GetString(buffer);
             }
+        }
 
-            if (lastLine == lineCount - 1)
-            {
-                return string.Join("\n", buffer);
-            }
-            var retVal = new string[lineCount];
-            buffer.CopyTo(lastLine + 1, retVal, 0, lineCount - lastLine - 1);
-            buffer.CopyTo(0, retVal, lineCount - lastLine - 1, lastLine + 1);
-            return string.Join("\n", retVal);
+        public Boolean isAutoStart()
+        {
+            return auto_start;
         }
 
 

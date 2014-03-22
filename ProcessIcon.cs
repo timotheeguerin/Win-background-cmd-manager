@@ -63,9 +63,8 @@ namespace CmdInTray
                 if (manager == null)
                 {
                     manager = new Manager();
-                    manager.ShowDialog();
                     manager.Closed += Manager_Close;
-
+                    manager.ShowDialog();
                 }
                 else
                 {
@@ -77,7 +76,6 @@ namespace CmdInTray
 
         void Manager_Close(object sender, System.EventArgs e)
         {
-            Console.WriteLine("QIUT");
             manager = null;
         }
 

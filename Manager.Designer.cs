@@ -38,6 +38,7 @@
             this.script_list_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_command = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.script_list_running = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.script_list_auto_start = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,10 +53,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.save_input_button = new System.Windows.Forms.Button();
-            this.console_richtext_box = new System.Windows.Forms.RichTextBox();
-            this.open_log_button = new System.Windows.Forms.Button();
             this.script_working_dir_input = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.console_richtext_box = new System.Windows.Forms.RichTextBox();
+            this.open_log_button = new System.Windows.Forms.Button();
+            this.script_auto_start_checkbox = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -135,7 +137,8 @@
             this.script_list_id,
             this.script_list_name,
             this.script_list_command,
-            this.script_list_running});
+            this.script_list_running,
+            this.script_list_auto_start});
             this.script_list.FullRowSelect = true;
             this.script_list.HideSelection = false;
             this.script_list.Location = new System.Drawing.Point(3, 3);
@@ -166,6 +169,11 @@
             // 
             this.script_list_running.Text = "Running";
             this.script_list_running.Width = 72;
+            // 
+            // script_list_auto_start
+            // 
+            this.script_list_auto_start.Text = "Auto start";
+            this.script_list_auto_start.Width = 65;
             // 
             // tableLayoutPanel2
             // 
@@ -318,6 +326,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
             this.tableLayoutPanel7.Controls.Add(this.save_input_button, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.script_auto_start_checkbox, 0, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(77, 119);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
@@ -335,6 +344,23 @@
             this.save_input_button.Text = "Save";
             this.save_input_button.UseVisualStyleBackColor = true;
             this.save_input_button.Click += new System.EventHandler(this.save_input_button_Click);
+            // 
+            // script_working_dir_input
+            // 
+            this.script_working_dir_input.Location = new System.Drawing.Point(77, 91);
+            this.script_working_dir_input.Name = "script_working_dir_input";
+            this.script_working_dir_input.ReadOnly = true;
+            this.script_working_dir_input.Size = new System.Drawing.Size(359, 20);
+            this.script_working_dir_input.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Working directory";
             // 
             // console_richtext_box
             // 
@@ -354,22 +380,16 @@
             this.open_log_button.Text = "Open log file";
             this.open_log_button.UseVisualStyleBackColor = true;
             // 
-            // script_working_dir_input
+            // script_auto_start_checkbox
             // 
-            this.script_working_dir_input.Location = new System.Drawing.Point(77, 91);
-            this.script_working_dir_input.Name = "script_working_dir_input";
-            this.script_working_dir_input.ReadOnly = true;
-            this.script_working_dir_input.Size = new System.Drawing.Size(359, 20);
-            this.script_working_dir_input.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 26);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Working directory";
+            this.script_auto_start_checkbox.AutoSize = true;
+            this.script_auto_start_checkbox.Location = new System.Drawing.Point(3, 3);
+            this.script_auto_start_checkbox.Name = "script_auto_start_checkbox";
+            this.script_auto_start_checkbox.Size = new System.Drawing.Size(84, 17);
+            this.script_auto_start_checkbox.TabIndex = 1;
+            this.script_auto_start_checkbox.Text = "Run on start";
+            this.script_auto_start_checkbox.UseVisualStyleBackColor = true;
+            this.script_auto_start_checkbox.Click += new System.EventHandler(this.script_auto_start_checkbox_CheckedChanged);
             // 
             // Manager
             // 
@@ -388,6 +408,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -422,5 +443,7 @@
         private System.Windows.Forms.Button open_log_button;
         private System.Windows.Forms.TextBox script_working_dir_input;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader script_list_auto_start;
+        private System.Windows.Forms.CheckBox script_auto_start_checkbox;
     }
 }

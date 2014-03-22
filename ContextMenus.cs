@@ -33,7 +33,7 @@ namespace CmdInTray
             item.Text = "Manage";
             item.Click += new EventHandler(Manage_Click);
             item.Image = Resources.Explorer;
-            menu.Items.Add(item);
+           // menu.Items.Add(item);
 
             // Separator.
             sep = new ToolStripSeparator();
