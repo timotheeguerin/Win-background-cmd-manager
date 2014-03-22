@@ -16,6 +16,7 @@ namespace CmdInTray
         /// </summary>
         NotifyIcon ni;
 
+        private Manager manager;
         /// <summary>
         /// Initializes a new instance of the <see cref="ProcessIcon"/> class.
         /// </summary>
@@ -59,9 +60,27 @@ namespace CmdInTray
             // Handle mouse button clicks.
             if (e.Button == MouseButtons.Left)
             {
-                new Manager().ShowDialog();
+                if (manager == null)
+                {
+                    manager = new Manager();
+                    manager.ShowDialog();
+                    manager.Closed += Manager_Close;
+
+                }
+                else
+                {
+                    manager.BringToFront();
+                }
+
             }
         }
+
+        void Manager_Close(object sender, System.EventArgs e)
+        {
+            Console.WriteLine("QIUT");
+            manager = null;
+        }
+
     }
 }
 

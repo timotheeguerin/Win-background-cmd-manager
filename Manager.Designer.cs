@@ -54,6 +54,8 @@
             this.save_input_button = new System.Windows.Forms.Button();
             this.console_richtext_box = new System.Windows.Forms.RichTextBox();
             this.open_log_button = new System.Windows.Forms.Button();
+            this.script_working_dir_input = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -175,8 +177,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(481, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 222F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 217F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(459, 394);
             this.tableLayoutPanel2.TabIndex = 7;
@@ -192,16 +194,19 @@
             this.tableLayoutPanel6.Controls.Add(this.label1, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label2, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.script_working_dir_input, 1, 4);
+            this.tableLayoutPanel6.Controls.Add(this.label4, 0, 4);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 5;
+            this.tableLayoutPanel6.RowCount = 6;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(453, 139);
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(453, 144);
             this.tableLayoutPanel6.TabIndex = 2;
             // 
             // tableLayoutPanel3
@@ -266,7 +271,7 @@
             // 
             // script_name_input
             // 
-            this.script_name_input.Location = new System.Drawing.Point(77, 58);
+            this.script_name_input.Location = new System.Drawing.Point(77, 50);
             this.script_name_input.Name = "script_name_input";
             this.script_name_input.ReadOnly = true;
             this.script_name_input.Size = new System.Drawing.Size(359, 20);
@@ -274,7 +279,7 @@
             // 
             // script_command_input
             // 
-            this.script_command_input.Location = new System.Drawing.Point(77, 83);
+            this.script_command_input.Location = new System.Drawing.Point(77, 71);
             this.script_command_input.Name = "script_command_input";
             this.script_command_input.ReadOnly = true;
             this.script_command_input.Size = new System.Drawing.Size(359, 20);
@@ -283,7 +288,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 55);
+            this.label1.Location = new System.Drawing.Point(3, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -301,7 +306,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 80);
+            this.label2.Location = new System.Drawing.Point(3, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 3;
@@ -313,7 +318,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
             this.tableLayoutPanel7.Controls.Add(this.save_input_button, 1, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(77, 109);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(77, 119);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -333,10 +338,10 @@
             // 
             // console_richtext_box
             // 
-            this.console_richtext_box.Location = new System.Drawing.Point(3, 148);
+            this.console_richtext_box.Location = new System.Drawing.Point(3, 153);
             this.console_richtext_box.Name = "console_richtext_box";
             this.console_richtext_box.ReadOnly = true;
-            this.console_richtext_box.Size = new System.Drawing.Size(453, 199);
+            this.console_richtext_box.Size = new System.Drawing.Size(453, 196);
             this.console_richtext_box.TabIndex = 3;
             this.console_richtext_box.Text = "";
             // 
@@ -348,6 +353,23 @@
             this.open_log_button.TabIndex = 4;
             this.open_log_button.Text = "Open log file";
             this.open_log_button.UseVisualStyleBackColor = true;
+            // 
+            // script_working_dir_input
+            // 
+            this.script_working_dir_input.Location = new System.Drawing.Point(77, 91);
+            this.script_working_dir_input.Name = "script_working_dir_input";
+            this.script_working_dir_input.ReadOnly = true;
+            this.script_working_dir_input.Size = new System.Drawing.Size(359, 20);
+            this.script_working_dir_input.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 88);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 26);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Working directory";
             // 
             // Manager
             // 
@@ -398,5 +420,7 @@
         private System.Windows.Forms.Label script_status_label;
         private System.Windows.Forms.RichTextBox console_richtext_box;
         private System.Windows.Forms.Button open_log_button;
+        private System.Windows.Forms.TextBox script_working_dir_input;
+        private System.Windows.Forms.Label label4;
     }
 }

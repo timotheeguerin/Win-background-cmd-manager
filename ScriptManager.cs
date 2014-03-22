@@ -34,10 +34,11 @@ namespace CmdInTray
 
         public void init()
         {
-            if (!System.IO.Directory.Exists(Script.log_dir))
+            if (System.IO.Directory.Exists(Script.log_dir))
             {
-                System.IO.Directory.CreateDirectory(Script.log_dir);
+                System.IO.Directory.Delete(Script.log_dir, true);
             }
+            System.IO.Directory.CreateDirectory(Script.log_dir);
             load();
         }
 

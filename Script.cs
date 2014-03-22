@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.IO;
 
 namespace CmdInTray
 {
@@ -25,6 +26,7 @@ namespace CmdInTray
         public int id;
         public String name;
         public String command;
+        public String working_directory;
 
         private Boolean running;
 
@@ -40,6 +42,7 @@ namespace CmdInTray
             running = false;
             name = "";
             command = "";
+            working_directory = "";
         }
 
         public void start()
@@ -53,7 +56,11 @@ namespace CmdInTray
 
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.CreateNoWindow = true;
-            process.StartInfo.FileName = command;
+            process.StartInfo.FileName = @"cmd";
+            process.StartInfo.Arguments = "/C " + command;
+            process.StartInfo.WorkingDirectory = working_directory;
+            Console.WriteLine("WD : " + working_directory);
+            Console.WriteLine("Start info: " + process.StartInfo.WorkingDirectory);
             process.OutputDataReceived += new DataReceivedEventHandler(handleOutput);
             try
             {
@@ -84,10 +91,17 @@ namespace CmdInTray
         public void stop()
         {
             running = false;
-            if (process != null && !process.HasExited)
+            try
             {
-                ScriptManager.KillAllProcessesSpawnedBy(Convert.ToUInt32(process.Id));
-                process.Kill();
+                if (process != null && !process.HasExited)
+                {
+                    ScriptManager.KillAllProcessesSpawnedBy(Convert.ToUInt32(process.Id));
+                    process.Kill();
+                }
+            }
+            catch (System.InvalidOperationException e)
+            {
+                Console.Write("Error: " + e.Message);
             }
         }
 
@@ -106,6 +120,45 @@ namespace CmdInTray
         {
             return "logs/scripts/" + name + ".log";
 
+        }
+
+        public string getLastLines()
+        {
+            if (!File.Exists(getLogFileName()))
+            {
+                return "";
+            }
+            int lineCount = 20;
+            List<string> buffer = new List<string>(lineCount);
+            TextReader reader = File.OpenText(getLogFileName());
+            string line;
+            for (int i = 0; i < lineCount; i++)
+            {
+                line = reader.ReadLine();
+                if (line == null)
+                {
+                    return string.Join("\n", buffer);
+                }
+                buffer.Add(line);
+            }
+
+            int lastLine = lineCount - 1;           //The index of the last line read from the buffer.  Everything > this index was read earlier than everything <= this indes
+
+            while (null != (line = reader.ReadLine()))
+            {
+                lastLine++;
+                if (lastLine == lineCount) lastLine = 0;
+                buffer[lastLine] = line;
+            }
+
+            if (lastLine == lineCount - 1)
+            {
+                return string.Join("\n", buffer);
+            }
+            var retVal = new string[lineCount];
+            buffer.CopyTo(lastLine + 1, retVal, 0, lineCount - lastLine - 1);
+            buffer.CopyTo(0, retVal, lineCount - lastLine - 1, lastLine + 1);
+            return string.Join("\n", retVal);
         }
 
 

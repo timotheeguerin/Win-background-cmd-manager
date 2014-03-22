@@ -21,6 +21,10 @@ namespace CmdInTray
             InitializeComponent();
             ScriptManager.instance().scriptOutputReceived += new ScriptManager.EventHandler(handleScriptOutput);
             this.FormClosing += Manager_Closing;
+            /*this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.Text = string.Empty;
+            */
             updateDisplay();
         }
 
@@ -52,13 +56,14 @@ namespace CmdInTray
             //save_input_button.Text = "Saved!";
             selected_script.name = script_name_input.Text;
             selected_script.command = script_command_input.Text;
+            selected_script.working_directory = script_working_dir_input.Text;
             updateDisplay();
         }
 
         private void script_list_ItemSelectionChanged(Object sender, ListViewItemSelectionChangedEventArgs e)
         {
             selected_script = find_script_by_id(int.Parse(e.Item.Text));
-            console_richtext_box.Text = "";
+            console_richtext_box.Text = selected_script.getLastLines();
             updateButtonStatus();
         }
 
@@ -70,10 +75,14 @@ namespace CmdInTray
                 start_button.Enabled = false;
                 stop_button.Enabled = false;
                 restart_button.Enabled = false;
+
                 script_name_input.Text = "";
                 script_command_input.Text = "";
+                script_working_dir_input.Text = "";
                 script_name_input.ReadOnly = true;
                 script_command_input.ReadOnly = true;
+                script_working_dir_input.ReadOnly = true;
+
                 remove_script_button.Enabled = false;
                 script_status_label.Text = "";
             }
@@ -83,10 +92,14 @@ namespace CmdInTray
                 start_button.Enabled = !selected_script.isRunning();
                 stop_button.Enabled = selected_script.isRunning();
                 restart_button.Enabled = selected_script.isRunning();
+
                 script_name_input.Text = selected_script.name;
                 script_command_input.Text = selected_script.command;
+                script_working_dir_input.Text = selected_script.working_directory;
                 script_name_input.ReadOnly = false;
                 script_command_input.ReadOnly = false;
+                script_working_dir_input.ReadOnly = false;
+
                 remove_script_button.Enabled = true;
                 if (selected_script.isRunning())
                 {
@@ -163,6 +176,7 @@ namespace CmdInTray
                 Action action = () =>
                 {
                     console_richtext_box.AppendText(e + Environment.NewLine);
+                    console_richtext_box.ScrollToCaret();
                 };
                 console_richtext_box.BeginInvoke(action);
             }
